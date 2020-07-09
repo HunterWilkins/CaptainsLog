@@ -1,0 +1,27 @@
+body {
+    /* background-image: url("https://www.nps.gov/piro/learn/nature/images/DeepForest_1.JPG"); */
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    color: white;
+}
+
+header, main, footer {
+    text-align: center;
+    padding: 15px;
+    width: 90%;
+    background: var(--layer0);
+    display: block;
+
+}

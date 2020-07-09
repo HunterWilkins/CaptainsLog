@@ -1,0 +1,21 @@
+:root {
+  --background: rgb(30, 23, 43);
+  --layer0: rgb(57, 36, 63);
+  --headerHeight: 150px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 20px;
+}

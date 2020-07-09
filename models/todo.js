@@ -19,7 +19,6 @@ let TodoSchema = new Schema ({
 
     startTime: {
         Type: Date,
-        required: true
     },
 
     duration: {
