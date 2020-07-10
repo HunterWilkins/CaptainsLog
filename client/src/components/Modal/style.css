@@ -1,0 +1,96 @@
+#modal-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.507);
+}
+
+#modal {
+    width: 500px;
+    background: var(--layer0);
+    padding: 15px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    text-align:center;
+}
+
+#modal > *:not(.checkbox) {
+    font-size: 18px;
+    margin: 5px auto;
+    border: none;
+}
+
+#modal section {
+    background: var(--layer0);
+}
+
+#modal section input {
+    background: var(--background);
+    border: none;
+    font-size: 18px;
+    padding: 15px;
+    color: white;
+}
+
+#modal input, #modal textarea {
+    padding: 15px;
+    color: white;
+    background: var(--background);
+}
+
+#modal section {
+    width: 90%;
+    text-align: center;
+}
+
+input[name = title] {
+    width: 90%;
+    display: block;
+}
+
+input[name = "hour"], input[name = "minutes"] {
+    display: inline-block;
+    width: 100px;
+}
+
+#modal section span {
+    padding: 5px;
+    font-size: 30px;
+}
+
+#modal textarea {
+    display: block;
+    width: 90%;
+    height: 7em;
+    resize: vertical;
+}
+
+#modal input[type = checkbox] {
+    /* position: absolute; */
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+    background: var(--background);
+    border-radius: 50px;
+    transition: .15s;
+    border: white 2px solid;
+}
+
+
+#modal input[type = checkbox]:checked + .checkbox {
+    border-radius: 0px;
+    border: red 2px solid;
+}

@@ -25,6 +25,37 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+app.get("/api/todos/:id", function(req, res) {
+    console.log("HITTING API ROUTE");
+    if (req.params.id === "all") {
+        Todos.find({}).then(function(dbTodos) {
+            res.json(dbTodos);
+        })
+    }
+
+    else {
+        Todos.find({
+            id: req.params.id
+        }).then(function(dbTodo) {
+            res.json(dbTodo);
+        })
+
+    }
+});
+
+app.post("/api/newTodo", function(req, res) {
+    Todos.create({
+        id: req.body.title.trim().toLowerCase(),
+        title: req.body.title,
+        desc: req.body.desc,
+        isOptional: req.body.isOptional,
+        startTime: req.body.startTime,
+        duration: req.body.duration,
+        isCompleted: false,
+    });
+
+    res.sendStatus(200);
+})
 
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "/client/build", "index.html"));

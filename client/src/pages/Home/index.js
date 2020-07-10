@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./style.css";
-
+import Modal from "../../components/Modal/index.js";
 
 import axios from "axios";
 
@@ -8,7 +8,8 @@ class Home extends Component {
 
     state = {
         page: window.location.pathname.split("/")[1],
-        roots: []
+        roots: [],
+        modal: false,
     }
 
     rootInfo = {
@@ -17,7 +18,15 @@ class Home extends Component {
     }
 
     componentDidMount = () => {
-  
+        axios.get("/api/todos/all").then((response) => {
+            console.log(response.data);
+        })
+    }
+
+    toggleModal = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
     }
 
     route = (destination) => {
@@ -32,10 +41,24 @@ class Home extends Component {
                 <header>
                     <h1>Captain's Log</h1>
                 </header>
+                {
+                    this.state.modal ? 
+                    <Modal></Modal>
+                    :
+                    null
+                }
                 <main>
-                    
+                    <p>This is the Main Page</p>
                 </main>
-                <footer></footer>
+
+                <aside>
+                    <div className = "div-button" onClick = {this.toggleModal}>
+                        <p>+</p>
+                    </div>
+                </aside>
+                <footer>
+                    <p>Hunter Wilkins</p>
+                </footer>
             </div>
         )
     }

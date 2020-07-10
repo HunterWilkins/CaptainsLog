@@ -17,11 +17,55 @@ body {
     color: white;
 }
 
-header, main, footer {
+header {
     text-align: center;
     padding: 15px;
-    width: 90%;
-    background: var(--layer0);
-    display: block;
+    margin: 15px auto;
+}
 
+main, aside {
+    display: inline-block;
+    text-align:center;
+}
+
+main {
+    background: var(--layer0);
+    position: absolute;
+    top: 110px;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 80%;
+}
+
+aside {
+    position: absolute;
+    left: 0;
+    top: 110px;
+    width: 50px;
+}
+
+footer {
+    position: fixed;
+    text-align:center;
+    background: var(--layer0);
+    padding: 5px;
+    width: 100%;
+    bottom: 0;
+}
+
+.div-button {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: var(--layer0);
+}
+
+.div-button p {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
 }

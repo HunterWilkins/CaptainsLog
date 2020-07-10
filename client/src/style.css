@@ -1,7 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --background: rgb(30, 23, 43);
   --layer0: rgb(57, 36, 63);
-  --headerHeight: 150px;
 }
 
 h1 {
