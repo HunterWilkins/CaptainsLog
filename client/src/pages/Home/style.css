@@ -53,6 +53,34 @@ footer {
     bottom: 0;
 }
 
+.todo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+.todo p {
+    padding: 5px;
+}
+
+.complete-label {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    margin-left: 2.5%;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    border: white solid 2px;
+}
+
+.complete:checked + .complete-label {
+    background: pink;
+}
+
 .div-button {
     cursor: pointer;
     position: relative;

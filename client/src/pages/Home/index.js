@@ -10,17 +10,28 @@ class Home extends Component {
         page: window.location.pathname.split("/")[1],
         roots: [],
         modal: false,
+        todos: localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [],
     }
 
-    rootInfo = {
-        name: "",
-        desc: ""
-    }
+    localTodos = [];
 
     componentDidMount = () => {
-        axios.get("/api/todos/all").then((response) => {
-            console.log(response.data);
-        })
+        // axios.get("/api/todos/all").then((response) => {
+        //     console.log(response.data);
+        // });
+
+
+    }
+
+    grabTodos = () => {
+        this.setState({
+            todos: JSON.parse(localStorage.getItem("todos"))
+        });
+    }
+
+    createTodo = (todoInfo) => {
+        console.log(todoInfo);
+        this.localTodos.push(todoInfo);
     }
 
     toggleModal = () => {
@@ -43,12 +54,23 @@ class Home extends Component {
                 </header>
                 {
                     this.state.modal ? 
-                    <Modal></Modal>
+                    <Modal localTodos = {this.localTodos}></Modal>
                     :
                     null
                 }
                 <main>
-                    <p>This is the Main Page</p>
+                    {
+                        this.state.todos.map(todo => {
+                            return(
+                                <div className = "todo">
+                                    <p className = "time">{todo.startTime.hour + ":" + todo.startTime.minutes}</p>
+                                    <p className = "title">{todo.title}</p>
+                                    <input id = "" id = {todo.title.replace(/ /g, "") + todo.startTime.hour + "isComplete"} className = "complete" type = "checkbox"></input>
+                                    <label for = {todo.title.replace(/ /g, "") + todo.startTime.hour + "isComplete"} className = "complete-label"></label>
+                                </div>
+                            )
+                        })
+                    }
                 </main>
 
                 <aside>
